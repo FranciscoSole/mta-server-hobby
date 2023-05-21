@@ -1,0 +1,7 @@
+<meta>
+    <info author="Seyer" type="script" />
+    <min_mta_version server="1.5.8-9.20957"></min_mta_version>
+    <script src="server.lua" type="server" />
+    <script src="client.lua" type="client" />
+    <file src="font/medium.ttf" />
+</meta>

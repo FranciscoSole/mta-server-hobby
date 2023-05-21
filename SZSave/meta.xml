@@ -1,0 +1,4 @@
+<meta>
+	<info author="Seyer" type="script" />
+	<script src="save.lua" type="server" />
+</meta>

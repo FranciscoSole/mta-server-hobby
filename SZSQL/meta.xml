@@ -1,0 +1,7 @@
+<meta>
+	<info author="Seyer" description="SQL system" />
+	<script src="server.lua" type="server" cache="false"/>
+	<export function="_Query" type="server" />
+    <export function="_QuerySingle" type="server" />
+    <export function="_Exec" type="server" />
+</meta>
