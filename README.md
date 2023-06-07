@@ -2,4 +2,4 @@ Arranqué con este proyecto en 2016 por mí mismo leyendo la wiki (https://wiki.
 
 Es un proyecto al que le tengo mucho cariño por la antigüedad que tiene y que me gustaría seguir evolucionandolo a futuro.
 
-Está hecho principalmente con LUA pero también tiene SQL para asegurar la permanencia y fácil visualización y modificación de la información.
+Está hecho principalmente con LUA pero también tiene SQL para asegurar la permanencia, fácil visualización y modificación de la información.
