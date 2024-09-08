@@ -2,58 +2,58 @@
 
 ## Features / Funcionalidades
 ### English
-#### Register system
-- Simple register interface
-- Verifies if user's pc has an account to avoid multi-account creation
-- Encrypts password using sha-256 for security
-- Autologin-in after a successfully register
+- #### Register system
+  - Simple register interface
+  - Verifies if user's pc has an account to avoid multi-account creation
+  - Encrypts password using sha-256 for security
+  - Autologin-in after a successfully register
 
-#### Log-in system
-- Simple log-in interface
-- When a player tries to log-in, validates if that account belongs to that PC to prevent account selling or theft
-- Load up all user information properly after log-in
+- #### Log-in system
+  - Simple log-in interface
+  - When a player tries to log-in, validates if that account belongs to that PC to prevent account selling or theft
+  - Load up all user information properly after log-in
 
-#### Bank system
-- Simple bank interface to deposits or withdrawals
-- All banking transactions are logged
-- In the future, depending on the card type, players will receive different discounts when purchasing items. However, I first need to implement a drugstore system or something similar.
+- #### Bank system
+  - Simple bank interface to deposits or withdrawals
+  - All banking transactions are logged
+  - In the future, depending on the card type, players will receive different discounts when purchasing items. However, I first need to implement a drugstore system or something similar.
   
-#### Admin system
-- List all active players
-- Displays detailed information about the selected player, such as current HP, money, location, and more.
-- Allows modification of the selected player's bank status, like creating a free account, removing it or adjusting the player’s balance.
-- Reconnects the selected to the server
+- #### Admin system
+  - List all active players
+  - Displays detailed information about the selected player, such as current HP, money, location, and more.
+  - Allows modification of the selected player's bank status, like creating a free account, removing it or adjusting the player’s balance.
+  - Reconnects the selected to the server
 
-#### Database system
-- When someone disconnects, it saves player's information
-- When server is closing, it automatically saves all active players information before closing
+- #### Database system
+  - When someone disconnects, it saves player's information
+  - When server is closing, it automatically saves all active players information before closing
 
 ### Español
-#### Sistema de registro
-- Tiene una interfaz simple
-- Valida si la pc que está usando el usuario no tenga una cuenta para evitar multicuentas
-- Encripta la contraseña usando sha-256 por seguridad
-- Conecta automaticamente al usuario luego de la creación de su cuenta
+- #### Sistema de registro
+  - Tiene una interfaz simple
+  - Valida si la pc que está usando el usuario no tenga una cuenta para evitar multicuentas
+  - Encripta la contraseña usando sha-256 por seguridad
+  - Conecta automaticamente al usuario luego de la creación de su cuenta
 
-#### Sistema de log-in
-- Tiene una interfaz simple
-- Cuando alguien intenta conectarse a una cuenta, valida si esa cuenta pertenece a esa PC para evitar venta o robo de cuentas
-- Carga la información del usuario correctamente luego del log-in
+- #### Sistema de log-in
+  - Tiene una interfaz simple
+  - Cuando alguien intenta conectarse a una cuenta, valida si esa cuenta pertenece a esa PC para evitar venta o robo de cuentas
+  - Carga la información del usuario correctamente luego del log-in
 
-#### Sistema bancario
-- Tiene una interfaz simple para depositar o extraer
-- Todas las transacciones se logean
-- A futuro agregaré un sistema que, dependiendo de qué tipo de tarjeta tengas, puedas obtener distintos descuentos cuando quieras comprar algo. Pero para eso primero tengo que implementar un sistema de kiosko o similar.
+- #### Sistema bancario
+  - Tiene una interfaz simple para depositar o extraer
+  - Todas las transacciones se logean
+  - A futuro agregaré un sistema que, dependiendo de qué tipo de tarjeta tengas, puedas obtener distintos descuentos cuando quieras comprar algo. Pero para eso primero tengo que implementar un sistema de kiosko o similar.
 
-#### Sistema de admin
-- Lista todos los jugadores actuales
-- Muestra información detallada del usuario seleccionado como su HP, dinero, localización, etcétera.
-- Permite la modificación de la situación bancaria del usuario seleccionado, desde crear o eliminar su cuenta hasta modificar su dinero depositado
-- Permite la reconección al servidor del usuario seleccionado
+- #### Sistema de admin
+  - Lista todos los jugadores actuales
+  - Muestra información detallada del usuario seleccionado como su HP, dinero, localización, etcétera.
+  - Permite la modificación de la situación bancaria del usuario seleccionado, desde crear o eliminar su cuenta hasta modificar su dinero depositado
+  - Permite la reconección al servidor del usuario seleccionado
 
-#### Sistema de base de datos
-- Cuando alguien se desconecta, guarda toda su información
-- Cuando el servidor está por cerrarse, primero guarda toda la información de todos los usuarios activos
+- #### Sistema de base de datos
+  - Cuando alguien se desconecta, guarda toda su información
+  - Cuando el servidor está por cerrarse, primero guarda toda la información de todos los usuarios activos
 
 ## Introduction / Introducción
 ### English
