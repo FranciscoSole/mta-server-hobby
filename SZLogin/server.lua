@@ -4,7 +4,7 @@ function open()
 	end
 end
 addEventHandler("onPlayerJoin", getRootElement(), open) -- When someone joins to this server, runs open()
-addEventHandler("onPlayerLogout", getRootElement(), open) -- When someone disconnects from his/her account or left the server, runs open()
+addEventHandler("onPlayerLogout", getRootElement(), open) -- When someone logout from his/her account, runs open()
 addEventHandler("onPlayerResourceStart", getRootElement(), open) -- When this resource starts, runs open()
 
 addEvent("[SZLogin]:register", true) -- Creates a custom event
