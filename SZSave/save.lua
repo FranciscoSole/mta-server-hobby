@@ -75,11 +75,16 @@ addEventHandler("onPlayerLogin", root,
 )
 
 addEventHandler("onPlayerSpawn", root,
-	function()
-		if not isGuestAccount(getPlayerAccount(source)) then
-			local skin, team = exports.SZMisc:_respawnget(source)
-			setElementModel(source, skin)
-			setPlayerTeam(source, getTeamFromName(team))
+	function() -- When some player dies, MTA:SA by itself changes player's skin to a random one. So, to avoid it, we have to set again every time that player dies
+		local accountID = getAccountID(source)
+
+		if accountID then
+			local getPlayerSkinQuery = "SELECT Skin FROM players WHERE AccountID = "..accountID
+			local result = exports.SZSQL:_QuerySingle(getPlayerSkinQuery)
+
+			-- local skin, team = exports.SZMisc:_respawnget(source)
+			setElementModel(source, result.Skin)
+			-- setPlayerTeam(source, getTeamFromName(team))
 		end
 	end
 )
