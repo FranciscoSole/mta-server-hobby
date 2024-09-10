@@ -16,60 +16,66 @@ dgsWindowSetSizable(register_panel, false)
 dgsSetVisible(register_panel, false)
 
 ---[Tabs]---
-local login_tab = dgsCreateTabPanel(x*0, y*(-22), x*323, y*283.5, false, login_panel)-- x*20 => x*0 
-local register_tab = dgsCreateTabPanel(x*0, y*(-22), x*326, y*339.5, false, register_panel)-- x*20 => x*0 
+local login_tab = dgsCreateTabPanel(x*0, y*(-22), x*323, y*283.5, false, login_panel)
+local register_tab = dgsCreateTabPanel(x*0, y*(-22), x*326, y*339.5, false, register_panel)
 
 ---[Labels]---
-local user_login = dgsCreateLabel(x*33, y*38, x*48, y*15, "Usuario:", false, login_tab)
-local max_login = dgsCreateLabel(x*257, y*63, x*56, y*15, "(máx. 25)", false, login_tab)
-local pw_login = dgsCreateLabel(x*10, y*102, x*71, y*16, "Contraseña:", false, login_tab)
-local max2_login = dgsCreateLabel(x*257, y*128, x*56, y*15, "(máx. 25)", false, login_tab)
+local login_username_label = dgsCreateLabel(x*33, y*38, x*48, y*15, "Usuario:", false, login_tab)
+local login_username_max = dgsCreateLabel(x*257, y*63, x*56, y*15, "(máx. 25)", false, login_tab)
+local login_password_label = dgsCreateLabel(x*10, y*102, x*71, y*16, "Contraseña:", false, login_tab)
+local login_password_max = dgsCreateLabel(x*257, y*128, x*56, y*15, "(máx. 25)", false, login_tab)
 
-local user_register = dgsCreateLabel(x*33, y*38, x*48, y*15, "Usuario:", false, register_tab)
-local max_register = dgsCreateLabel(x*257, y*63, x*56, y*15, "(máx. 25)", false, register_tab)
-local pw_register = dgsCreateLabel(x*10, y*102, x*71, y*16, "Contraseña:", false, register_tab)
-local max2_register = dgsCreateLabel(x*257, y*128, x*56, y*15, "(máx. 25)", false, register_tab)
-local pw2_register = dgsCreateLabel(x*25, y*157, x*45, y*13, "Repetir", false, register_tab)
-local pw2nd_register = dgsCreateLabel(x*10, y*170, x*71, y*16, "contraseña:", false, register_tab)
-local max3_register = dgsCreateLabel(x*257, y*186, x*56, y*15, "(máx. 25)", false, register_tab)
+local register_username_label = dgsCreateLabel(x*33, y*38, x*48, y*15, "Usuario:", false, register_tab)
+local register_username_max = dgsCreateLabel(x*257, y*63, x*56, y*15, "(máx. 25)", false, register_tab)
+local register_password_label = dgsCreateLabel(x*10, y*102, x*71, y*16, "Contraseña:", false, register_tab)
+local register_password_max = dgsCreateLabel(x*257, y*128, x*56, y*15, "(máx. 25)", false, register_tab)
+local register_confirmedPassword_label = dgsCreateLabel(x*25, y*157, x*45, y*13, "Repetir", false, register_tab)
+local register_confirmedPassword_label2 = dgsCreateLabel(x*10, y*170, x*71, y*16, "contraseña:", false, register_tab)
+local register_confirmedPassword_max = dgsCreateLabel(x*257, y*186, x*56, y*15, "(máx. 25)", false, register_tab)
 
 ---[Buttons]---
-local gologin = dgsCreateButton(x*9, y*163, x*304, y*48, "Login", false, login_tab, _, _, _, _, _, _, tocolor(66, 134, 244, 150), tocolor(10, 250, 244, 150), tocolor(130, 200, 244, 150))
-local turnreg = dgsCreateButton(x*9, y*226, x*304, y*48, "Register", false, login_tab, _, _, _, _, _, _, tocolor(66, 134, 244, 150), tocolor(66, 134, 244, 150), tocolor(66, 134, 244, 150))
+local color = tocolor(66, 134, 244, 150) -- It's not a button, it's only a parametre to avoid repeating this function call 
+local login_goLogIn_button = dgsCreateButton(x*9, y*163, x*304, y*48, "Login", false, login_tab, _, _, _, _, _, _, color, color, color)
+local login_openRegister_button = dgsCreateButton(x*9, y*226, x*304, y*48, "Register", false, login_tab, _, _, _, _, _, _, color, color, color)
 
-local goregister = dgsCreateButton(x*9, y*224, x*304, y*48, "Register", false, register_tab, _, _, _, _, _, _, tocolor(66, 134, 244, 150), tocolor(66, 134, 244, 150), tocolor(66, 134, 244, 150))
-local turnlog = dgsCreateButton(x*9, y*283, x*304, y*48, "Login", false, register_tab, _, _, _, _, _, _, tocolor(66, 134, 244, 150), tocolor(66, 134, 244, 150), tocolor(66, 134, 244, 150))
+local register_goRegister_button = dgsCreateButton(x*9, y*224, x*304, y*48, "Register", false, register_tab, _, _, _, _, _, _, color, color, color)
+local register_openLogIn_button = dgsCreateButton(x*9, y*283, x*304, y*48, "Login", false, register_tab, _, _, _, _, _, _, color, color, color)
 
----[Edits]---
-local user_edit_login = dgsCreateEdit(x*87, y*30, x*226, y*33, "", false, login_tab)
-dgsEditSetMaxLength(user_edit_login, 25)
+---[Edits -> Are boxes writables]---
+local login_username_edit = dgsCreateEdit(x*87, y*30, x*226, y*33, "", false, login_tab)
+dgsEditSetMaxLength(login_username_edit, 25)
 
-local pw_edit_login = dgsCreateEdit(x*87, y*95, x*226, y*33, "", false, login_tab)
-dgsEditSetMaxLength(pw_edit_login, 25)
-dgsEditSetMasked(pw_edit_login, true)
+local login_password_edit = dgsCreateEdit(x*87, y*95, x*226, y*33, "", false, login_tab)
+dgsEditSetMaxLength(login_password_edit, 25)
+dgsEditSetMasked(login_password_edit, true)
 
-local user_edit_reg = dgsCreateEdit(x*87, y*30, x*226, y*33, "", false, register_tab)
-dgsEditSetMaxLength(user_edit_reg, 25)
+local register_username_edit = dgsCreateEdit(x*87, y*30, x*226, y*33, "", false, register_tab)
+dgsEditSetMaxLength(register_username_edit, 25)
 
-local pw_edit_reg = dgsCreateEdit(x*87, y*95, x*226, y*33, "", false, register_tab)
-dgsEditSetMaxLength(pw_edit_reg, 25)
-dgsEditSetMasked(pw_edit_reg, true)
+local register_password_edit = dgsCreateEdit(x*87, y*95, x*226, y*33, "", false, register_tab)
+dgsEditSetMaxLength(register_password_edit, 25)
+dgsEditSetMasked(register_password_edit, true)
 
-local pw2_edit_reg = dgsCreateEdit(x*87, y*153, x*226, y*33, "", false, register_tab)
-dgsEditSetMaxLength(pw2_edit_reg, 25)
-dgsEditSetMasked(pw2_edit_reg, true)
+local register_confirmedPassword_edit = dgsCreateEdit(x*87, y*153, x*226, y*33, "", false, register_tab)
+dgsEditSetMaxLength(register_confirmedPassword_edit, 25)
+dgsEditSetMasked(register_confirmedPassword_edit, true)
 
 --Main events
 addEventHandler("onDgsMouseClick", dgsRoot,
 	function(_, state)
 		if state == "down" then
-			if (source == turnreg) then changeVisibility("openRegisterPanel")
-			elseif (source == turnlog) then changeVisibility("openLoginPanel")
-			elseif (source == gologin) or (source == goregister) then
-				local user, pw, pw2 = getText(source)
-				if isOK(user, pw, pw2) then
-					if (source == gologin) then triggerServerEvent("[SZLogin]:login", localPlayer, localPlayer, user, pw)
-					else triggerServerEvent("[SZLogin]:register", localPlayer, localPlayer, user, pw)
+			if (source == login_openRegister_button) then 
+				changeVisibility("openRegisterPanel")
+			elseif (source == register_openLogIn_button) then 
+				changeVisibility("openLoginPanel")
+			elseif (source == login_goLogIn_button) or (source == register_goRegister_button) then
+				local username, password, confirmedPassword = getText(source)
+
+				if isOK(username, password, confirmedPassword) then
+					if (source == login_goLogIn_button) then 
+						triggerServerEvent("[SZLogin]:login", localPlayer, localPlayer, username, password)
+					else 
+						triggerServerEvent("[SZLogin]:register", localPlayer, localPlayer, username, password)
 					end
 				end
 			end
@@ -79,11 +85,11 @@ addEventHandler("onDgsMouseClick", dgsRoot,
 
 addEvent("[SZLogin]:openClose", true)
 addEventHandler("[SZLogin]:openClose", getLocalPlayer(),
-	function(whatDo)
-		if whatDo == "openLoginPanel" then
+	function(toDo)
+		if toDo == "openLoginPanel" then
 			dgsSetVisible(login_panel, true)
 			showCursor(true)
-		elseif whatDo == "closeLoginRegisterPanels" then
+		elseif toDo == "closeLoginRegisterPanels" then
 			dgsSetVisible(login_panel, false)
 			dgsSetVisible(register_panel, false)
 			showCursor(false)
@@ -93,38 +99,57 @@ addEventHandler("[SZLogin]:openClose", getLocalPlayer(),
 
 --Main functions
 function getText(source)
-	local user, pw, pw2
-	if (source == gologin) then
-		user = dgsGetText(user_edit_login)
-		pw = dgsGetText(pw_edit_login)
-	elseif (source == goregister) then
-		user = dgsGetText(user_edit_reg)
-		pw = dgsGetText(pw_edit_reg)
-		pw2 = dgsGetText(pw2_edit_reg)
+	local username, password, confirmedPassword
+
+	if (source == login_goLogIn_button) then -- If user wants to log-in
+		username = dgsGetText(login_username_edit)
+		password = dgsGetText(login_password_edit)
+	elseif (source == register_goRegister_button) then -- If user wants to register
+		username = dgsGetText(register_username_edit)
+		password = dgsGetText(register_password_edit)
+		confirmedPassword = dgsGetText(register_confirmedPassword_edit)
 	end
-	return user, pw, pw2 or pw
+
+	return username, password, confirmedPassword or password -- If confirmedPassword is null then player is trying to log-in and not registering. So, returns password again to generalize isOK function
 end
 
-function changeVisibility(whatDo)
-	if whatDo == "openLoginPanel" then
+function changeVisibility(toDo)
+	if toDo == "openLoginPanel" then
 		dgsSetVisible(register_panel, false)
 		dgsSetVisible(login_panel, true)
-	elseif whatDo == "openRegisterPanel" then
+	elseif toDo == "openRegisterPanel" then
 		dgsSetVisible(login_panel, false)
 		dgsSetVisible(register_panel, true)
 	end
 end
 
-function isOK(user, pw, pw2)
-	if user == "" or pw == "" or pw2 == "" then exports.SZMisc:_msgcl("gral", "err", "all")
-	elseif pw ~= pw2 then exports.SZMisc:_msgcl("login", "err", "dist")
-	elseif (#user < 5) then exports.SZMisc:_msgcl("login", "err", "uDig")
-	elseif (#pw < 6) then exports.SZMisc:_msgcl("login", "err", "pwDig")
-	else return true 
+function isOK(username, password, confirmedPassword)
+	if username == "" or password == "" or confirmedPassword == "" then
+		exports.SZMisc:_clientErrorMsg("Please complete all the fields.")
+	elseif password ~= confirmedPassword then
+		exports.SZMisc:_clientErrorMsg("Passwords don't match.")
+	elseif (#username < 5) then -- In Lua '#variable' returns variable's value length
+		exports.SZMisc:_clientErrorMsg("Username must have 5 letters at least for security.")
+	elseif (#password < 6) then -- In Lua '#variable' returns variable's value length
+		exports.SZMisc:_clientErrorMsg("Passwords must have 6 letters at least for security.")
+	else 
+		return true 
 	end
 end
 
 --Misc
+function setFontToArray(elementsArray, font)
+	for index, element in pairs(elementsArray) do 
+		dgsSetFont(element, font) 
+	end
+end
+
+function setFontColorToArray(elementsArray, red, green, blue)
+	for index, element in pairs(elementsArray) do 
+		dgsLabelSetColor(element, red, green, blue) 
+	end
+end
+
 addEventHandler("onClientResourceStart", getRootElement(), 
 	function()
 		local font = {
@@ -132,53 +157,26 @@ addEventHandler("onClientResourceStart", getRootElement(),
 			[2] = dxCreateFont("font/medium.ttf", 14)
 		}
 		
-		local elementsWithFont1 = {
-			[1] = login_panel,
-			[2] = register_panel,
-			[3] = user_login,
-			[4] = pw_login,
-			[5] = user_register,
-			[6] = pw_register,
-			[7] = pw2_register,
-			[8] = pw2nd_register,
-			[9] = max_login,
-			[10] = max2_login,
-			[11] = max_register,
-			[12] = max2_register,
-			[13] = max3_register,
-			[14] = user_edit_login,
-			[15] = pw_edit_login,
-			[16] = user_edit_reg,
-			[17] = pw_edit_reg,
-			[18] = pw2_edit_reg
+		local elementsWithSmallFont = {
+			login_panel, login_username_label, login_password_label, 
+			login_username_max, login_password_max,
+			login_username_edit, login_password_edit,
+			register_panel, register_username_label, register_password_label, register_confirmedPassword_label, register_confirmedPassword_label2, 
+			register_username_max, register_password_max, register_confirmedPassword_max,
+			register_username_edit, register_password_edit, register_confirmedPassword_edit
 		}
-		for _, v in pairs(elementsWithFont1) do dgsSetFont(v, font[1]) end
-
-		local white_labels = {
-			[1] = user_login,
-			[2] = pw_login,
-			[3] = user_register,
-			[4] = pw_register,
-			[5] = pw2_register,
-			[6] = pw2nd_register
-		}
-		for _, v in pairs(white_labels) do dgsLabelSetColor(v, 255, 255, 255) end
-		
-		local red_labels = {
-			[1] = max_login,
-			[2] = max2_login,
-			[3] = max_register,
-			[4] = max2_register,
-			[5] = max3_register
-		}
-		for _, v in pairs(red_labels) do dgsLabelSetColor(v, 255, 0, 0) end
+		setFontToArray(elementsWithSmallFont, font[1])
 
 		local buttons = {
-			[1] = gologin,
-			[2] = turnreg,
-			[3] = goregister,
-			[4] = turnlog
+			login_goLogIn_button, login_openRegister_button,
+			register_goRegister_button, register_openLogIn_button
 		}
-		for _, v in pairs(buttons) do dgsSetFont(v, font[2]) end
+		setFontToArray(buttons, font[2])
+
+		local red_labels = {
+			login_username_max, login_password_max,
+			register_username_max, register_password_max, register_confirmedPassword_max
+		}
+		setFontColorToArray(red_labels, 255, 0, 0) -- 255, 0, 0 = red
 	end
 )
