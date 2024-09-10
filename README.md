@@ -57,14 +57,14 @@
 
 ## Introduction / Introducción
 ### English
-I started this client-server structure project in 2016 by myself with absolutely zero knowledge of programming but with a lot of curiosity. By reading a lot from the wiki (https://wiki.multitheftauto.com/wiki/Main_Page), the forums (https://forum.multitheftauto.com/), and watching some videos, I was able to take my first steps into the world of programming. For various reasons, I’ve often left it aside for a while, but I come back to it from time to time to improve the code (based on what I’m currently learning in university), with the last time being in December 2022.
+I started this client-server structure project in 2016 by myself with absolutely zero knowledge of programming but with a lot of curiosity. By reading a lot from the wiki (https://wiki.multitheftauto.com/wiki/Main_Page), the forums (https://forum.multitheftauto.com/), and watching some videos, I was able to take my first steps into the world of programming. For various reasons, I’ve often left it aside for a while, but I come back to it from time to time to improve the code (based on what I’m currently learning in university or my jobs).
 
 This is a project that I’m very fond of due to how long it has been around, and I would like to keep evolving it in the future.
 
 It is mainly built with LUA but also uses SQL to ensure the persistence, easy visualization, and modification of the data.
 
 ### Español
-Arranqué este proyecto de estructura cliente-servidor en 2016 por mí mismo con un completo nulo conocimiento en programación pero con mucha curiosidad. Leyendo mucho de la wiki (https://wiki.multitheftauto.com/wiki/Main_Page), los foros (https://forum.multitheftauto.com/) y viendo algunos videos, pude empezar a dar mis primeros pasos en el mundo de la programación. Por diversos motivos siempre lo terminé dejando un tiempo pero cada tanto vuelvo para mejorar los códigos (en base a lo que aprendo actualmente en la facultad), siendo diciembre de 2022 la última vez.
+Arranqué este proyecto de estructura cliente-servidor en 2016 por mí mismo con un completo nulo conocimiento en programación pero con mucha curiosidad. Leyendo mucho de la wiki (https://wiki.multitheftauto.com/wiki/Main_Page), los foros (https://forum.multitheftauto.com/) y viendo algunos videos, pude empezar a dar mis primeros pasos en el mundo de la programación. Por diversos motivos siempre lo terminé dejando un tiempo pero cada tanto vuelvo para mejorar los códigos (en base a lo que aprendo actualmente en la facultad o mis trabajos).
 
 Es un proyecto al que le tengo mucho cariño por la antigüedad que tiene y que me gustaría seguir evolucionandolo a futuro.
 
