@@ -1,6 +1,0 @@
-<meta>
-	<info author="Seyer" type="script"/>
-	<script src="server.lua" type="server" />
-	<script src="client.lua" type="client" />
-	<file src="font/medium.ttf" />
-</meta>

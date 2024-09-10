@@ -25,23 +25,26 @@ addEventHandler("[SZLogin]:register", getRootElement(),
 					local x, y, z, rx, ry, rz = 1680.4482421875, 1497.376953125, 10.768490791321, 0, 0, 262.657 -- Defines specifics map coordinates and rotations (Las Venturas Airport) to use later
 					
 					logIn(thePlayer, userAccount, encryptedPassword)
-					exports.SZMisc:_msgsv("login", "info", "reg", thePlayer)
-
-					setAccountData(userAccount, "ID", accountID) -- Saves accountID into a key:value using a native method that can be used by using natives log-in and register system. It's useful because
-																 -- if I need to get some information about this user, I can do it just by using getAccountData(getAccount(username), "ID") and then execute
-																 -- a query to get whatever I need. It's a gigant performance improvement.
+					
+					setAccountData(userAccount, "SQL_ID", accountID)
+					--[[ 
+						Saves accountID into a key:value using a native method that can be used by using natives log-in and register system. It's useful because
+						if I need to get some information about this user, I can do it just by using getAccountData(getAccount(username), "ID") and then execute
+						a query to get whatever I need. It's a gigant performance improvement. 
+					]]--
 					
 					spawnPlayer(thePlayer, x, y, z, rx, ry, rz) -- Set players position to those coordinates
 					setElementModel(thePlayer, 26) -- Set players skins to 26, a tourist skin
 					triggerClientEvent(thePlayer, "[SZLogin]:openClose", thePlayer, "closeLoginRegisterPanels") -- Calls to client event to close register window
-				else 
-					exports.SZMisc:_msgsv("gral", "err", "sv", thePlayer) -- Outputs there's an rare error and ask to notify it to me.
+					exports.SZMisc:_serverInformationMsg("You have been registered sucessfully.")
+				else
+					exports.SZMisc:_serverErrorMsg("There was an unknown error while creating your account, please contact with Seyer for support.")
 				end
 			else	
-				exports.SZMisc:_msgsv("login", "err", "serial") -- Outputs there's already an existing account with user's serial
+				exports.SZMisc:_serverErrorMsg("Your PC serial matches with an existing account. If you need create another, ask to Seyer.")
 			end
 		else 
-			exports.SZMisc:_msgsv("login", "err", "existe", thePlayer) -- Outputs there's already an existing account with that username
+			exports.SZMisc:_serverErrorMsg("This username already exists, please choose another.") 
 		end
 	end
 )
@@ -52,38 +55,34 @@ addEventHandler("[SZLogin]:login", getRootElement(),
 		local account = getAccount(username)
 
 		if account then
-			local accountID = getAccountData(account, "ID") -- Get account ID that's being used in MySQL database
+			local accountID = getAccountData(account, "SQL_ID") -- Get account ID that's being used in MySQL database
 			local encryptedPassword = tostring(sha256(password)) -- Encrypts password
-			local passwordQuery = "SELECT accounts_checkPassword(?, ?) as areEquals" -- Defines a query with an internal database function to check accountID's password with MySQL database and return true or false.
-			local passwordResult = exports.SZSQL:_QuerySingle(passwordQuery, encryptedPassword, accountID) -- Execute this query with all necesary values to check into MySQL database
-			local passwordsAreEqual = passwordResult["areEquals"]
+			local passwordQueryFunction = "accounts_checkPassword" -- Defines stored function name's to use into MySQL database
 
-			if(passwordsAreEqual) then
-				local serial = getPlayerSerial(thePlayer) 
-				local serialQuery = "SELECT accounts_checkSerial(?, ?) as areEquals" -- Defines a query with an internal database function to check accountID's password with MySQL database and return true or false.
-				local serialResult = exports.SZSQL:_QuerySingle(serialQuery, serial, accountID) -- Execute this query with all necesary values to add into MySQL database
-				local serialsAreEqual = serialResult["areEquals"]
+			if(areEqual(passwordQueryFunction, encryptedPassword, accountID)) then
+				local serial = getPlayerSerial(thePlayer)
+				local serialQueryFunction = "accounts_checkSerial"
 
-				if(serialsAreEqual) then
+				if(areEqual(serialQueryFunction, serial, accountID)) then
 					logIn(thePlayer, account, encryptedPassword)
 					triggerClientEvent(thePlayer, "[SZLogin]:openClose", thePlayer, "closeLoginRegisterPanels") -- Calls to client event to close register window
-					exports.SZMisc:_msgsv("login", "info", "logged-in", thePlayer)
+					exports.SZMisc:_serverInformationMsg("You have been logged-in succesfully.")
 				else
-					exports.SZMisc:_msgsv("login", "err", "pc", thePlayer)
-			else 
-				exports.SZMisc:_msgsv("login", "err", "pwinv", thePlayer)
+					exports.SZMisc:_serverErrorMsg("This account belongs to another PC. Selling accounts is forbbiden and it's a ban reason.")
+				end
+			else
+				exports.SZMisc:_serverErrorMsg("Password is invalid.")
 			end
 		else
-			exports.SZMisc:_msgsv("login", "err", "no", thePlayer)
+			exports.SZMisc:_serverErrorMsg("That username doesn't exist.")
 		end
 	end
 )
 
-addEventHandler("onPlayerQuit", getRootElement(),
-	function()
-		local account = getPlayerAccount(source)
-		local accountID = getAccountData(account, "ID")
-		local query = "CALL accounts_updateLastLogIn(?)"
-		exports.SZSQL:_Exec(query, accountID)
-	end
-)
+function areEqual(sqlFunction, value, accountID)
+	local query = "SELECT "..sqlFunction.."(?, ?) as areEqual" -- Defines a query with an internal database function to check accountID's password with MySQL database and returns 0 as true or 1 as false.
+	local queryResult = exports.SZSQL:_QuerySingle(query, value, accountID) -- Execute this query with all necesary values to check into MySQL database
+	local areEqual = (queryResult["areEqual"] ~= 0) -- If it's different to 0, it's 1 so it's true
+
+	return areEqual
+end
