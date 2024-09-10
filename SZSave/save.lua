@@ -23,7 +23,7 @@ function savePlayerInfo(player)
 
 		exports.SZSQL:_Exec(lastLogInQueryProcedure, accountID)
 		exports.SZSQL:_Exec(updatePlayerInfoProcedure, hp, armor, money, skin, dimension, interior, x, y, z, rx, ry, rz, accountID)
-		print("Updating account ID '"..accountID.."' information...")
+		print("Saving account ID '"..accountID.."' information...")
 	end
 end
 
@@ -33,7 +33,7 @@ addEventHandler("onPlayerQuit", root,
 	end
 )
 
-addEventHandler("onResourceStop", getRootElement(), 
+addEventHandler("onResourceStop", root,
 	function()
 		for index, player in ipairs(getElementsByType("player")) do -- For each player connected
 			savePlayerInfo(player)
