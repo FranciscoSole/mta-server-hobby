@@ -41,7 +41,7 @@ local login_openRegister_button = dgsCreateButton(x*9, y*226, x*304, y*48, "Regi
 local register_goRegister_button = dgsCreateButton(x*9, y*224, x*304, y*48, "Register", false, register_tab, _, _, _, _, _, _, color, color, color)
 local register_openLogIn_button = dgsCreateButton(x*9, y*283, x*304, y*48, "Login", false, register_tab, _, _, _, _, _, _, color, color, color)
 
----[Edits -> Are boxes writables]---
+---[Edits -> Are writables boxes]---
 local login_username_edit = dgsCreateEdit(x*87, y*30, x*226, y*33, "", false, login_tab)
 dgsEditSetMaxLength(login_username_edit, 25)
 
