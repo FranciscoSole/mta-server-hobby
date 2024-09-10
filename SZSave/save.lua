@@ -51,17 +51,16 @@ addEventHandler("onPlayerLogin", root,
 
 			setElementHealth(source, result.HP)
 			setPedArmor(source, result.Armor)
-			setElementModel(source, result.Skin)
 			setPlayerMoney(source, result.Money)
+			setElementModel(source, result.Skin)
 			setElementInterior(source, result.Interior)
 			setElementDimension(source, result.Dimension)
 			setElementPosition(source, result.X, result.Y, result.Z)
 			setElementRotation(source, result.Rx, result.Ry, result.Rz)
+			-- local r, g, b = getTeamColor(getTeamFromName(team))
+			-- setPlayerNametagColor(source, r, g, b)
 			-- setPlayerTeam(source, getTeamFromName(team))
 			-- setBlipColor(source, r, g, b, 255)
-			-- setPlayerNametagColor(source, r, g, b)
-			-- local skin, money, armor, hp, x, y, z, xr, yr, zr, int, dim, team = exports.SZMisc:_get("user", "getDBPlayerInfo", source)
-			-- local r, g, b = getTeamColor(getTeamFromName(team))
 			
 			--if (type(checkW) == "table") then 
 			--	for _, weapon in pairs (checkW) do 
@@ -81,10 +80,9 @@ addEventHandler("onPlayerSpawn", root,
 		if accountID then
 			local getPlayerSkinQuery = "SELECT Skin FROM players WHERE AccountID = "..accountID
 			local result = exports.SZSQL:_QuerySingle(getPlayerSkinQuery)
-
-			-- local skin, team = exports.SZMisc:_respawnget(source)
+			
 			setElementModel(source, result.Skin)
 			-- setPlayerTeam(source, getTeamFromName(team))
 		end
 	end
-)
+) 
