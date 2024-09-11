@@ -145,7 +145,7 @@ addEventHandler("onClientResourceStart", getRootElement(),
 			[2] = dxCreateFont("font/medium.ttf", 14)
 		}
 		
-		local elementsWithSmallFont = {
+		local smallerFontElements = {
 			login_panel, login_username_label, login_password_label, 
 			login_username_max, login_password_max,
 			login_username_edit, login_password_edit,
@@ -153,19 +153,19 @@ addEventHandler("onClientResourceStart", getRootElement(),
 			register_username_max, register_password_max, register_confirmedPassword_max,
 			register_username_edit, register_password_edit, register_confirmedPassword_edit
 		}
-		setFontToArray(elementsWithSmallFont, font[1])
+		setFontToArray(smallFontElements, font[1])
 
-		local buttons = {
+		local biggerFontElements = {
 			login_goLogIn_button, login_openRegister_button,
 			register_goRegister_button, register_openLogIn_button
 		}
-		setFontToArray(buttons, font[2])
+		setFontToArray(biggerFontElements, font[2])
 
-		local red_labels = {
+		local specialElements = {
 			login_username_max, login_password_max,
 			register_username_max, register_password_max, register_confirmedPassword_max
 		}
-		setFontColorToArray(red_labels, 255, 0, 0) -- 255, 0, 0 = red
+		setFontColorToArray(specialElements, 255, 0, 0) -- 255, 0, 0 = red
 	end
 )
 
