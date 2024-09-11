@@ -1,5 +1,5 @@
 # Log-In System
-![logInSystem](https://i.imgur.com/MNk6Uhw.png)
+![logInSystem](https://i.imgur.com/gkXROXe.png)
 ## Features / Funcionalidades
 ### English
 - Simple log-in interface
@@ -12,7 +12,7 @@
 - Carga la información del usuario correctamente luego del log-in
 
 # Register System
-![logInSystem](https://i.imgur.com/n1r9NNL.png)
+![logInSystem](https://i.imgur.com/BONcZfu.png)
 ## Features / Funcionalidades
 ### English
 - Simple register interface
