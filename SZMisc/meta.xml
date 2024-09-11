@@ -1,5 +1,6 @@
 <meta>
 	<info author="Seyer" type="script"/>
+	<script src="clientMessages.lua" type="client" />
 	<script src="serverMessages.lua" type="server" />
 	<script src="commandsv.lua" type="server" />
 	<script src="commandcl.lua" type="client" />
@@ -17,6 +18,8 @@
 	<export function="_msgsvstaff" type="server" />
 	<export function="_loginget" type="server" />
 	<export function="_respawnget" type="server" />
+	<export function="_clientErrorMsg" type="client" />
+	<export function="_clientInformationMsg" type="client" />
 	<export function="_serverErrorMsg" type="server" />
 	<export function="_serverInformationMsg" type="server" />
 </meta>
