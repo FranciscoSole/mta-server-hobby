@@ -138,18 +138,6 @@ function isOK(username, password, confirmedPassword)
 end
 
 --Misc
-function setFontToArray(elementsArray, font)
-	for index, element in pairs(elementsArray) do 
-		dgsSetFont(element, font) 
-	end
-end
-
-function setFontColorToArray(elementsArray, red, green, blue)
-	for index, element in pairs(elementsArray) do 
-		dgsLabelSetColor(element, red, green, blue) 
-	end
-end
-
 addEventHandler("onClientResourceStart", getRootElement(), 
 	function()
 		local font = {
@@ -180,3 +168,15 @@ addEventHandler("onClientResourceStart", getRootElement(),
 		setFontColorToArray(red_labels, 255, 0, 0) -- 255, 0, 0 = red
 	end
 )
+
+function setFontToArray(elementsArray, font)
+	for index, element in pairs(elementsArray) do 
+		dgsSetFont(element, font) 
+	end
+end
+
+function setFontColorToArray(elementsArray, red, green, blue)
+	for index, element in pairs(elementsArray) do 
+		dgsLabelSetColor(element, red, green, blue) 
+	end
+end
