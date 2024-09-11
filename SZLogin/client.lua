@@ -153,7 +153,7 @@ addEventHandler("onClientResourceStart", getRootElement(),
 			register_username_max, register_password_max, register_confirmedPassword_max,
 			register_username_edit, register_password_edit, register_confirmedPassword_edit
 		}
-		setFontToArray(smallFontElements, font[1])
+		setFontToArray(smallerFontElements, font[1])
 
 		local biggerFontElements = {
 			login_goLogIn_button, login_openRegister_button,
